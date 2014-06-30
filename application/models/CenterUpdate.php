@@ -60,7 +60,8 @@ class Centerupdate extends CI_Model
 			return $err;
 		}
 		//always true
-		$this->Funds_Account->central_unfreeze($deal_id, $buyer_ZJ_id);
+		if($buyer_isall==1)
+			$this->Funds_Account->central_unfreeze($buyer);
 
 		//证券账户
 		$ZQ_isall = $buyer_isall * 1 + $seller_isall * 2;
